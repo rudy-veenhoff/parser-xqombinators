@@ -1,1 +1,19 @@
-plugins { id "com.marklogic.ml-gradle" version "4.3.2" }
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "com.marklogic:marklogic-unit-test-client:1.0.beta"
+  }
+}
+
+plugins { id "com.marklogic.ml-gradle" version "4.4.0" }
+
+repositories {
+  jcenter()
+}
+  
+dependencies {
+  mlBundle "com.marklogic:marklogic-unit-test-modules:1.2.1"
+}
+
