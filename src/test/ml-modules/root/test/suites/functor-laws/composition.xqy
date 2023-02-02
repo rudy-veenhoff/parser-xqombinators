@@ -8,8 +8,8 @@ import module namespace pxq = "https://github.com/rudy-veenhoff/parser-xqombinat
 
 declare function local:compose($f,$g){ function($x){$f($g($x))} };
 
-for $f      in (function($a){ $a || "bc"}, function($a){ "b" })
-for $g      in (function($a){ $a || "cd"}, function($a){ "d" })
+for $f      in (function($a){ $a || "bc"}, function($a){ element parent { $a } }, function($a){ json:object() => map:with("key", $a)})
+for $g      in (function($a){ $a || "cd"}, function($a){ "d" }, function($a){ element child { $a }})
 for $parser in ($pxq:item, pxq:char("a"))
 for $input  in ("abc", "", "@")
 return test:assert-equal(

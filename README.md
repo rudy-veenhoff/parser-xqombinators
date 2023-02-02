@@ -1,6 +1,6 @@
 # parser-xqombinators
 A Parser Combinator Library for XQuery. Contains combinators for choice(s),
-sequences, zero-or-one, zero-or-more, one-or-more (called respectively optional, many and some).
+sequencing, zero-or-one, zero-or-more, one-or-more (called respectively optional, many and some).
 
 ## The Parser Type in XQuery
 In a language with a richer type system, a simple type for a Parser
@@ -80,9 +80,10 @@ Returns
 ]
 ```
 
-
-
+## Testing Type Class Laws
+The unit tests for the parser xqombinator library also include tests for 
+the type class laws. The tests can be found under: `src/test/ml-modules/root/test/suites/`.
 
 ## Useful References
-- Hutton, G. (2016). _Programming in Haskell_ (2nd ed). Cambridge University
+- Hutton, G. (2016). _Programming in Haskell_ (2nd ed). Cambridge University, Chapter 13.
 - Grune D, Jacobs C.F.D. (2008). _Parsing Techniques A Practical Guide_ (2nd ed). Springer Science+Business Media, LLC

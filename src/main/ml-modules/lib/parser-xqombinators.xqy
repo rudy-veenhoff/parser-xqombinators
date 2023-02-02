@@ -204,7 +204,7 @@ declare function pxq:_some(
   $f      as function(item(), item()) as item()*,
   $acc    as item()*,
   $input  as xs:string
-) as json:array
+)
 {
   let $parse-result := pxq:parse($parser, $input)
   return

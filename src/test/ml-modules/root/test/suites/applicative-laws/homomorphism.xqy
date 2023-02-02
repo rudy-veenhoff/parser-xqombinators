@@ -8,7 +8,7 @@ import module namespace pxq = "https://github.com/rudy-veenhoff/parser-xqombinat
 
 for $parser in ($pxq:item, pxq:char("a"))
 for $input  in ("abc", "", "@")
-for $g in (function($n){ $n + 1}, function($n){ $n div 5 })
+for $g in (function($n){ $n + 1 }, function($n){ $n div 5 })
 for $x in (-1, 0, 1, 2e2, xs:float("INF"))
 return test:assert-equal(
   pxq:parse(pxq:pure($g($x)), $input),
