@@ -121,6 +121,7 @@ declare function pxq:appl(
 
 (:-------------Monad------------Monad------------Monad------------------------:)
 
+(: (>>=) :: Parser a -> (a -> Parser b) -> Parser b:)
 declare function pxq:bind(
   $p as function(xs:string) as json:array,
   $f as function(item())    as function(xs:string) as json:array
@@ -136,6 +137,14 @@ declare function pxq:bind(
         $parse-result[2]
       )
   }
+};
+
+(: a -> Parser a :)
+declare function pxq:return(
+  $x as item()
+) as function(xs:string) as json:array
+{
+  pxq:pure($x)
 };
 
 (:-------------Alternative------------Alternative------------Alternative------:)
@@ -197,7 +206,7 @@ declare function pxq:some(
   function($input as xs:string){ pxq:_some($parser, $f, $zero, $input) }
 };
 
-(: This function is tail call optimized using acculated parameters,
+(: This function is tail call optimized using accumulated parameters,
    fn:fold-left is used to fill the accumulator. :)
 declare function pxq:_some(
   $parser as function(xs:string) as json:array,
